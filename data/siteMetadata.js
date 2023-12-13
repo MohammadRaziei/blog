@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  title: 'Mohammad Raziei Blog',
+  author: 'Mohammad Raziei',
+  headerTitle: 'Mohammad Raziei Blog',
+  description: 'Welcome to to Mohammad Raziei Blog. This blog is used for publishing achievements ',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://mohammadraziei.github.io/blog',
@@ -13,10 +13,11 @@ const siteMetadata = {
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'mohammadraziei1375@gmail.com',
   github: 'https://github.com/mohammadraziei',
-  twitter: 'https://twitter.com/Twitter',
+  twitter: 'https://twitter.com/MohammadRaziei',
   telegram: 'https://t.me/mohammadraziei',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/mohammad-raziei-595515134/',
+  medium: 'https://www.medium.com/@mohammad.raziei/',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
