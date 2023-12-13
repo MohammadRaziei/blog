@@ -12,6 +12,7 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'mohammadraziei1375@gmail.com',
+  website: 'https://mohammadraziei.github.io/',
   github: 'https://github.com/mohammadraziei',
   twitter: 'https://twitter.com/MohammadRaziei',
   telegram: 'https://t.me/mohammadraziei',
