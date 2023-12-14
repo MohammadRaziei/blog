@@ -48,4 +48,4 @@ yarn-error.log*
 .contentlayer
 
 
-public/static/images/avatar.png
+/public/static/assets/downloaded/
