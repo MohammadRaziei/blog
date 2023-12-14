@@ -1,0 +1,154 @@
+---
+title: liburlparser package
+date: '2023-03-08'
+tags: ['projects', 'cpp', 'python', 'package']
+draft: false
+summary: Extract url information as fast as possible using liburlparser in python or C++ or command-line
+authors: ['default']
+---
+
+# liburlparser package
+
+## Overview
+
+`liburlparser` is a high-performance domain extractor library designed for parsing URLs in C++ and Python, as well as from the command line. It provides an intuitive interface that is consistent across supported languages, making it a versatile tool for developers working with web URLs and domains.
+
+The library offers a range of features, including:
+
+- Support for multiple programming languages: Python, C++, and Shell.
+- Two separate classes, `Url` and `Host`, for clean and organized code.
+- Automatic updates to the public suffix list before each build and deployment.
+- Extraction and recognition of known and unknown TLDs (Top-Level Domains).
+
+## Getting Started
+
+### Prerequisites
+
+- For C++ usage, a C++17 compatible compiler is required.
+- For Python usage, Python version 3.8 or higher is required.
+
+### Installation
+
+#### C++ Setup
+
+To build and install the C++ part of the library, follow these steps:
+
+```sh
+git clone https://github.com/mohammadraziei/liburlparser
+mkdir -p build; cd build
+cmake ..
+make
+sudo make install
+```
+
+#### Python and Command Line Setup
+
+Install the library using pip:
+
+```sh
+pip install liburlparser
+```
+
+For updating the public suffix list, install with the `online` option:
+
+```sh
+pip install "liburlparser[online]"
+```
+
+Alternatively, you can install directly from the git repository:
+
+```sh
+pip install git+https://github.com/mohammadraziei/liburlparser
+```
+
+Or manually:
+
+```sh
+git clone https://github.com/mohammadraziei/liburlparser
+pip install ./liburlparser
+```
+
+## Tutorial with Examples
+
+### Command Line Usage
+
+After installation, you can use `liburlparser` from the command line:
+
+```sh
+python -m liburlparser --url "https://mail.google.com/about" | jq
+python -m liburlparser --host "mail.google.com" | jq
+```
+
+### Python Usage
+
+Here's how you can use `liburlparser` in Python:
+
+```python
+from liburlparser import Url, Host
+
+# Parse a URL:
+url = Url("https://ee.aut.ac.ir/#id")
+print(url, url.suffix, url.domain, url.fragment, url.host, url.to_dict(), url.to_json())
+
+# Parse a host:
+host = Host("ee.aut.ac.ir")
+# or
+host = Host.from_url("https://ee.aut.ac.ir/#id")
+print(host, host.domain, host.suffix, host.to_dict(), host.to_json())
+
+# Extract the host of a URL as a string:
+host_str = Url.extract_host("https://ee.aut.ac.ir/about")
+```
+
+### C++ Usage
+
+Below is an example of how to use `liburlparser` in C++:
+
+```c++
+#include "urlparser.h"
+
+int main() {
+    // Parse a URL:
+    TLD::Url url("https://ee.aut.ac.ir/about");
+    std::string domain = url.domain(); // Also for subdomain, port, params, etc.
+
+    // Parse a host:
+    TLD::Host host("ee.aut.ac.ir");
+    // or
+    TLD::Host host = url.host();
+    // or
+    TLD::Host host = TLD::Host::fromUrl("https://ee.aut.ac.ir/about");
+
+    return 0;
+}
+```
+
+For more examples, refer to the `examples` directory in the repository.
+
+## Performance
+
+`liburlparser` has been benchmarked against other libraries and has shown to be highly efficient in extracting domains from URLs and hosts.
+
+## License
+
+`liburlparser` is distributed under the MIT License. For more information, see the [LICENSE](https://github.com/mohammadraziei/liburlparser/blob/master/LICENSE) file in the repository.
+
+## Contact
+
+For any inquiries, you can reach out through the project's [GitHub repository](https://github.com/mohammadraziei/liburlparser).
+
+This documentation provides a quick overview and examples to get you started with `liburlparser`. For detailed API documentation, you can generate the docs using Doxygen with the provided `Doxyfile.in`.
+
+## cite
+
+Use this bib style to cite this package.
+
+```bib
+@misc{raziei_liburlparser,
+  author = {Raziei, Mohammad},
+  title = {{liburlparser: The fastest domain extractor}},
+  year = {2023},
+  howpublished = {\url{https://github.com/mohammadraziei/liburlparser}},
+  note = {Accessed: [Insert access date here]}
+}
+```
