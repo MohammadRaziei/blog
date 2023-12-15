@@ -6,12 +6,20 @@ const projectsData = [
     href: 'https://www.zarebin.ir/about-us',
   },
   {
-    title: 'liburlparser',
+    title: 'liburlparser package',
     description: `liburlparser is a versatile URL parsing library offering high-performance domain extraction in C++ with seamless Python bindings. It features an intuitive interface across both languages, supports automatic updates to the public suffix list, and excels in speed, outperforming other libraries in benchmarks. Ideal for developers needing robust URL analysis in C++ and Python environments.`,
     imgSrc:
       'https://raw.githubusercontent.com/MohammadRaziei/liburlparser/master/docs/images/logo/liburlparser-logo-1.svg',
     href: '/blog/projects/liburlparser',
   },
+  {
+    title: 'MSc Thesis',
+    description: `Undersampled MRI image reconstruction`,
+    imgSrc:
+      '/static/images/mri/mri-scan-2.jpg',
+    href: '/blog/projects/msc-thesis',
+  },
+
 ]
 
 export default projectsData
