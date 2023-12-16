@@ -13,8 +13,8 @@ const projectsData = [
     href: '/blog/projects/liburlparser',
   },
   {
-    title: 'MSc Thesis',
-    description: `Undersampled MRI image reconstruction`,
+    title: 'MSc Thesis: Undersampled MRI image reconstruction',
+    description: `Researchers at Sharif University, supervised by Vosoghi Vahdat, used innovative signal processing and deep learning techniques to achieve a 5 to 10-fold increase in MRI imaging speed while maintaining high image quality. Their work introduced the LMGNR criterion for superior image quality assessment, showcasing potential to significantly advance medical imaging technology and improve patient care. This groundbreaking approach positions Sharif University at the forefront of accelerating MRI speed through pioneering research in signal processing and deep learning.`,
     imgSrc:
       '/static/images/mri/mri-scan-2.jpg',
     href: '/blog/projects/msc-thesis',
