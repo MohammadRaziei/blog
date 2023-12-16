@@ -15,11 +15,15 @@ const projectsData = [
   {
     title: 'MSc Thesis: Undersampled MRI image reconstruction',
     description: `Researchers at Sharif University, supervised by Vosoghi Vahdat, used innovative signal processing and deep learning techniques to achieve a 5 to 10-fold increase in MRI imaging speed while maintaining high image quality. Their work introduced the LMGNR criterion for superior image quality assessment, showcasing potential to significantly advance medical imaging technology and improve patient care. This groundbreaking approach positions Sharif University at the forefront of accelerating MRI speed through pioneering research in signal processing and deep learning.`,
-    imgSrc:
-      '/static/images/mri/mri-scan-2.jpg',
+    imgSrc: '/static/images/mri/mri-scan-2.jpg',
     href: '/blog/projects/msc-thesis',
   },
-
+  {
+    title: 'BSc Thesis: Reinforcement Learning based algorithms to control autonomous driving car',
+    description: `Developed as part of a BSc thesis, Gym-Prescan merges OpenAI Gym and PreScan for streamlined reinforcement learning in autonomous vehicles. Meanwhile, Prescan_Test, also a component of a BSc thesis, ensures rigorous validation within PreScan for robust autonomous vehicle algorithms.`,
+    imgSrc: '/static/images/bsc/bsc-thesis-image.jpg',
+    href: '/blog/projects/bsc-thesis',
+  },
 ]
 
 export default projectsData
