@@ -24,6 +24,12 @@ const projectsData = [
     imgSrc: '/static/images/bsc/bsc-thesis-image.jpg',
     href: '/blog/projects/bsc-thesis',
   },
+  {
+    title: 'My Website',
+    description: `check some information about my website and the technologies that used in it`,
+    imgSrc: '/static/assets/images/mohammadraziei-website.png',
+    href: '/blog/projects/my-website',
+  },
 ]
 
 export default projectsData
