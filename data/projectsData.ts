@@ -27,7 +27,7 @@ const projectsData = [
   {
     title: 'My Website',
     description: `check some information about my website and the technologies that used in it`,
-    imgSrc: '/static/assets/images/mohammadraziei-website.png',
+    imgSrc: 'https://mohammadraziei.github.io/static/assets/images/mohammadraziei-website.png',
     href: '/blog/projects/my-website',
   },
 ]
