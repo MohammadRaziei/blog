@@ -48,10 +48,26 @@ const Youtube = ({ id }) => {
     setCurrentSource(source)
   }
 
+  const src = sources?.find((s) => s?.key === currentSource)?.url?.replace('{}', id)
+
+  // if(src){
+  //   fetch(src)
+  //   .then(response => {
+  //     if (response.ok) {
+  //       console.log('URL is accessible for client');
+  //     } else {
+  //       console.log('URL is not accessible for client');
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.log('Error checking URL accessibility:', error);
+  //   });
+  // }
+
   return (
     <div className="py-2">
       <div className="relative">
-        <Frame src={sources?.find((s) => s?.key === currentSource)?.url?.replace('{}', id)} />
+        <Frame src={src} />
       </div>
       <div className="justify-left mt-1 flex flex-wrap space-x-0">
         {sources.map((source) => (
@@ -59,8 +75,8 @@ const Youtube = ({ id }) => {
             key={source.key}
             onClick={() => handleSourceChange(source.key)}
             className={
-              'flex rounded px-3 py-1 text-xs  font-bold text-white hover:bg-red-700 ' +
-              (currentSource === source.key ? 'bg-red-500' : '')
+              'flex rounded px-3 py-1 text-xs font-bold shadow-sm shadow-gray-500/20 hover:bg-red-500 hover:text-white dark:text-white ' +
+              (currentSource === source.key ? 'bg-red-600 text-white' : '')
             }
           >
             {source.label}
