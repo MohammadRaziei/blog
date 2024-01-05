@@ -14,7 +14,7 @@ export function Telegram(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...svgProps}>
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M12,0c6.6,0,12,5.4,12,12s-5.4,12-12,12S0,18.6,0,12S5.4,0,12,0z M17.8,6.6l-2.1,10.8c0,0-0.3,0.7-1.1,0.4,l-4.9-3.9c0,0,5.5-4.9,5.7-5.1c0.2-0.2,0.1-0.3,0.1-0.3c0-0.3-0.4,0-0.4,0l-7.3,4.6l-3-1c0,0-0.5-0.2-0.5-0.5c0-0.4,0.5-0.6,0.5-0.6,l12-4.7C16.8,6.3,17.8,5.8,17.8,6.6z M11.5,15.4l-2,1.8c0,0-0.2,0.1-0.3,0l0.4-3.3L11.5,15.4z"
       />
     </svg>
