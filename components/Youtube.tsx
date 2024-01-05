@@ -1,20 +1,34 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-function Frame({ src, ...rest }) {
+function Frame({ src, isLoading, ...rest }) {
   return (
-    <iframe
+    <div
       style={{ width: '100%', aspectRatio: '16 / 9' }}
-      src={src}
-      allowFullScreen
-      title="video"
-    />
+      className="relative bg-black"
+      {...rest}
+    >
+      <iframe
+        className={`absolute top-0 left-0 w-full h-full ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        src={src}
+        allowFullScreen
+        title="video"
+      />
+      {isLoading && (
+        <div
+          className="absolute top-0 left-0 w-full h-full flex justify-center items-center transition-opacity duration-2000 bg-black"
+        >
+          <div className="spinner w-10 h-10 border-4 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
+        </div>
+      )}
+    </div>
   )
 }
 
 const Youtube = ({ id }) => {
   const [currentSource, setCurrentSource] = useState('_youtube')
+  const [isLoading, setIsLoading] = useState(true)
 
   const sources: Array<{ key: string; label: string; url: string }> = [
     {
@@ -43,31 +57,23 @@ const Youtube = ({ id }) => {
       url: 'https://invidious.drgns.space/embed/{}?t=2',
     },
   ]
-
-  const handleSourceChange = (source) => {
-    setCurrentSource(source)
+  const handleSourceChange = (newSource) => {
+    setCurrentSource(newSource)
+    setIsLoading(true)
   }
 
-  const src = sources?.find((s) => s?.key === currentSource)?.url?.replace('{}', id)
+  // Setup the effect hook to turn off the loading spinner after 1 second
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000)
+    return () => clearTimeout(timer)
+  }, [currentSource, id])
 
-  // if(src){
-  //   fetch(src)
-  //   .then(response => {
-  //     if (response.ok) {
-  //       console.log('URL is accessible for client');
-  //     } else {
-  //       console.log('URL is not accessible for client');
-  //     }
-  //   })
-  //   .catch(error => {
-  //     console.log('Error checking URL accessibility:', error);
-  //   });
-  // }
+  const src = sources.find((s) => s.key === currentSource)?.url?.replace('{}', id)
 
   return (
     <div className="py-2">
       <div className="relative">
-        <Frame src={src} />
+        <Frame src={src} isLoading={isLoading} />
       </div>
       <div className="justify-left mt-1 flex flex-wrap space-x-0">
         {sources.map((source) => (
@@ -75,8 +81,7 @@ const Youtube = ({ id }) => {
             key={source.key}
             onClick={() => handleSourceChange(source.key)}
             className={
-              'flex rounded px-3 py-1 text-xs font-bold shadow-sm shadow-gray-500/20 hover:bg-red-500 hover:text-white dark:text-white ' +
-              (currentSource === source.key ? 'bg-red-600 text-white' : '')
+              `flex rounded px-3 py-1 text-xs font-bold shadow-sm shadow-gray-500/20 hover:bg-red-500 hover:text-white dark:text-white ${currentSource === source.key ? 'bg-red-600 text-white' : ''}`
             }
           >
             {source.label}
