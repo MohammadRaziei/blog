@@ -68,7 +68,7 @@ jobs:
       - name: Prepare downloads
         run: |
           bash ./prepare.sh
-          wget "https://github.com/MohammadRaziei/mohammadraziei.github.io/raw/main/src/_header.html" -O "src/_header.html"
+          wget "https://github.com/MohammadRaziei/mohammadraziei.github.io/raw/main/src/_header.html"
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build project assets
@@ -76,7 +76,7 @@ jobs:
       - name: Beautifier - tidy format output html
         run: |
           sudo apt-get install tidy -qq -y 1> /dev/null
-          find ./out -name "*.html" -exec sh -c 'echo "Processing {} ..."; tidy --indent auto --quiet yes --show-body-only auto --show-errors 0 --wrap 0 -o {} {};  cat src/_header.html {} > {}.tmp && mv {}.tmp {}' \;
+          find ./out -name "*.html" -exec sh -c 'echo "Processing {} ..."; tidy --indent auto --quiet yes --show-body-only auto --show-errors 0 --wrap 0 -o {} {};  cat ./_header.html {} > {}.tmp && mv {}.tmp {}' \;
       - name: Preview deploy files
         run: tree --du -shaC ./out
       - name: Upload artifact
