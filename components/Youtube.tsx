@@ -4,22 +4,16 @@ import React, { useState, useEffect } from 'react'
 
 function Frame({ src, isLoading, ...rest }) {
   return (
-    <div
-      style={{ width: '100%', aspectRatio: '16 / 9' }}
-      className="relative bg-black"
-      {...rest}
-    >
+    <div style={{ width: '100%', aspectRatio: '16 / 9' }} className="relative bg-black" {...rest}>
       <iframe
-        className={`absolute top-0 left-0 w-full h-full ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        className={`absolute left-0 top-0 h-full w-full ${isLoading ? 'opacity-0' : 'opacity-100'}`}
         src={src}
         allowFullScreen
         title="video"
       />
       {isLoading && (
-        <div
-          className="absolute top-0 left-0 w-full h-full flex justify-center items-center transition-opacity duration-2000 bg-black"
-        >
-          <div className="spinner w-10 h-10 border-4 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
+        <div className="duration-2000 absolute left-0 top-0 flex h-full w-full items-center justify-center bg-black transition-opacity">
+          <div className="spinner h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
         </div>
       )}
     </div>
@@ -80,9 +74,9 @@ const Youtube = ({ id }) => {
           <button
             key={source.key}
             onClick={() => handleSourceChange(source.key)}
-            className={
-              `flex rounded px-3 py-1 text-xs font-bold shadow-sm shadow-gray-500/20 hover:bg-red-500 hover:text-white dark:text-white ${currentSource === source.key ? 'bg-red-600 text-white' : ''}`
-            }
+            className={`flex rounded px-3 py-1 text-xs font-bold shadow-sm shadow-gray-500/20 hover:bg-red-500 hover:text-white dark:text-white ${
+              currentSource === source.key ? 'bg-red-600 text-white' : ''
+            }`}
           >
             {source.label}
           </button>
