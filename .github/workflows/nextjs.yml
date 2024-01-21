@@ -77,7 +77,7 @@ jobs:
       - name: Beautifier - tidy format output html
         run: |
           sudo apt-get install tidy -qq -y 1> /dev/null
-          find ./out -name "*.html" -exec sh -c 'echo "Processing {} ..."; tidy -config .tidy.conf -o {} {}; cp ./_header.html {}.tmp > {}.tmp && tail -n +2 {} >> {}.tmp && mv {}.tmp {}' \;
+          find ./out -name "*.html" -exec sh -c 'echo "Processing {} ..."; tidy -config .tidy.conf -o {} {}; cat ./_header.html {} > {}.tmp && mv {}.tmp {}' \;
       - name: Preview deploy files
         run: tree --du -shaC ./out
       - name: Upload artifact
